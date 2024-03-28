@@ -1,0 +1,44 @@
+experiment:
+  dataset: rc_15
+  data_config:
+    strategy: fixed
+    train_path: ../data/{0}/f_training.tsv
+#    validation_path: ../data/{0}/validation.tsv
+    test_path: ../data/{0}/f_test.tsv
+#    strategy: dataset
+#    root_folder: ../data/{0}/splitting
+#    dataset_path: ../data/{0}/dataset.tsv
+#    train_path: /home/sisinflab/PycharmProjects/elliot/data/movielens_1m/splitting/0/0/train.tsv
+#    validation_path: /home/sisinflab/PycharmProjects/elliot/data/movielens_1m/splitting/0/0/validation.tsv
+#    test_path: /home/sisinflab/PycharmProjects/elliot/data/movielens_1m/splitting/0/test.tsv
+#  prefiltering:
+#    - strategy: global_threshold
+#      threshold: 3
+#    - strategy: iterative_k_core
+#      core: 5
+#  binarize: True
+#  splitting:
+#    save_on_disk: True
+#    save_folder: ../splitting/{0}
+#    test_splitting:
+#      strategy: random_subsampling
+#      test_ratio: 0.2
+#    validation_splitting:
+#      strategy: random_subsampling
+#      test_ratio: 0.1
+#  negative_sampling:
+#    strategy: fixed
+#    files: ["/home/cheggynho/PycharmProjects/elliot/data/ncf_pinterest/pinterest-20.test.negative"]
+  top_k: 20
+  evaluation:
+    cutoffs: [10]
+    simple_metrics: [PopREO, PopRSP]
+    paired_ttest: True
+    wilcoxon_test: True
+#  print_results_as_triplets: True
+#  gpu: -1
+  external_models_path: ../external/models/__init__.py
+  models:
+    RecommendationFolder:
+      folder: /home/vincenzo/PycharmProjects/my_sir_elliot/results/rc_15/recs
+
