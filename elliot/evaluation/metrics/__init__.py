@@ -36,7 +36,7 @@ from elliot.evaluation.metrics.diversity.SRecall import SRecall
 from elliot.evaluation.metrics.novelty.EFD import EFD, ExtendedEFD
 from elliot.evaluation.metrics.novelty.EPC import EPC, ExtendedEPC
 
-from elliot.evaluation.metrics.bias import ARP, APLT, ACLT, PopRSP, PopREO, ExtendedPopRSP, ExtendedPopREO, Delta_APLT, Train_APLT, RAPLT, RAPLT_Recall
+from elliot.evaluation.metrics.bias import ARP, APLT, ACLT, PopRSP, PopREO, ExtendedPopRSP, ExtendedPopREO, Delta_APLT, Train_APLT, RAPLT, RAPLT_Recall, PRU
 
 from elliot.evaluation.metrics.fairness.MAD import UserMADrating, ItemMADrating, UserMADranking, ItemMADranking
 from elliot.evaluation.metrics.fairness.BiasDisparity import BiasDisparityBR, BiasDisparityBS, BiasDisparityBD
@@ -99,6 +99,7 @@ _metric_dictionary = {
     "RAPLT_Recall": RAPLT_Recall,
     "PDU": PDU,
     "HV": HV,
+    "PRU": PRU
 }
 
 _lower_dict = {k.lower(): v for k, v in _metric_dictionary.items()}
