@@ -132,7 +132,7 @@ class UserMADranking(BaseMetric):
         for i in range(self._n_clusters):
             for j in range(i+1,self._n_clusters):
                 differences.append(abs(avg[i] - avg[j]))
-        f = open(f"results/{self._config.dataset}/performance/{self._params.name}_cutoff={self._cutoff}_ndcg_groups.txt", "a")
+        f = open(f"results/{self._config.dataset}/performance/{self._params.name}_{self._cutoff}_g.txt", "a")
         for i in range(self._n_clusters):
             f.write(f'Group_{i}: {str(avg[i])}\n')
         f.close()

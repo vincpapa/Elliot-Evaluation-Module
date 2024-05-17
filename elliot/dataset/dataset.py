@@ -43,8 +43,8 @@ class DataSetLoader(LoaderCoordinator):
         self.kwargs = kwargs
         self.config = config
         self.column_names = ['userId', 'itemId', 'rating', 'timestamp']
-        if config.config_test:
-            return
+        # if config.config_test:
+        #     return
         if config.data_config.strategy == "fixed":
             path_train_data = config.data_config.train_path
             path_val_data = getattr(config.data_config, "validation_path", None)
@@ -81,7 +81,7 @@ class DataSetLoader(LoaderCoordinator):
                 self.tuple_list, self.side_information = self.coordinate_information(self.tuple_list,
                                                                                      sides=config.data_config.side_information,
                                                                                      logger=self.logger)
-
+        '''
         elif config.data_config.strategy == "hierarchy":
             self.tuple_list = self.read_splitting(config.data_config.root_folder, column_names=self.column_names)
 
@@ -113,7 +113,7 @@ class DataSetLoader(LoaderCoordinator):
 
         else:
             raise Exception("Strategy option not recognized")
-
+        '''
         if isinstance(self.tuple_list[0][1], list):
             self.logger.warning("You are using a splitting strategy with folds. "
                                 "Paired TTest and Wilcoxon Test are not available!")
@@ -191,17 +191,21 @@ class DataSet(AbstractDataset):
         :param path_train_data: relative path for train file
         :param path_test_data: relative path for test file
         """
-        self.logger = logging.get_logger(self.__class__.__name__, pylog.CRITICAL if config.config_test else
-        pylog.DEBUG)
+        # self.logger = logging.get_logger(self.__class__.__name__, pylog.CRITICAL if config.config_test else
+        # pylog.DEBUG)
+        self.logger = logging.get_logger(self.__class__.__name__, pylog.DEBUG)
         self.config = config
         self.args = args
         self.kwargs = kwargs
 
+        '''
         if self.config.align_side_with_train == True:
             self.side_information = self.align_with_training(train=data_tuple[0],
                                                              side_information_data=side_information_data)
         else:
             self.side_information = side_information_data
+        '''
+        self.side_information = side_information_data
 
         self.train_dict = self.dataframe_to_dict(data_tuple[0])
 

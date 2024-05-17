@@ -11,6 +11,9 @@ per_user = False
 #             'DEF_compute_metrics_facebook_books_LightGCN.yml', 'DEF_compute_metrics_facebook_books_BPRMF.yml',
 #             'DEF_compute_metrics_baby_LightGCN.yml', 'DEF_compute_metrics_baby_BPRMF.yml']
 
-conf_list = ['DEF_compute_metrics_baby_NGCF.yml']
+# conf_list = ['DEF_compute_metrics_baby_NGCF.yml', 'DEF_compute_metrics_facebook_books_NGCF.yml',
+#              'DEF_compute_metrics_baby_BPRMF.yml', 'DEF_compute_metrics_facebook_books_BPRMF.yml']
+
+conf_list = ['DEF_compute_metrics_music_BPRMF.yml']
 for conf_file in conf_list:
     run_experiment(f"config_files/{conf_file}", per_user)
